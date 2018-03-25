@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="vertical-align-content">
+  <ion-grid>
+    <ion-row>
+          <ion-col>
+            <h1>Bitcoin Price</h1>
+            <button ion-button outline round  (click)='queryBtcPrice();' class="focus" >
+              {{btcPrice}}
+            </button>
+          </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="version">
+    {{version}}
+  </div>
+</ion-content>

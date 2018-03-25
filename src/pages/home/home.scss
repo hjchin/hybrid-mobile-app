@@ -1,0 +1,23 @@
+page-home{
+
+
+    .vertical-align-content > *
+    {
+        display: flex!important;
+        align-content: center!important;
+        align-items: center!important;
+        text-align: center;
+        .focus{
+            padding:24pt;
+            min-width: 150pt;
+        }
+
+        .version{
+            position: absolute;
+            bottom:10px;
+            right:10px;
+        }
+    }
+
+
+}

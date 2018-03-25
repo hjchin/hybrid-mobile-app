@@ -1,0 +1,36 @@
+history-page {
+
+    .ion-item{
+        padding-left:0;
+
+        h2{
+            margin-bottom:0px;
+        }
+
+       .date{
+            margin-bottom:8pt; 
+        }
+
+        .label{
+            width:100pt;
+            display:inline-block;
+        }
+
+        .value{
+            font-weight: bold;
+        }
+
+        .buy{
+            color:green;
+        }
+
+        .sell{
+            color:blueviolet;
+        }
+
+        .deposit{
+            color:darkgoldenrod;
+        }
+    }
+    
+}

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="register" (ngSubmit)="regsiterForm()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-list>
+              <ion-item>
+                <ion-label >Email</ion-label>
+                <ion-input type="text" formControlName="email" placeholder="valid email"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label >Username</ion-label>
+                  <ion-input type="text" formControlName="username" placeholder="min 3 characters"></ion-input>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label >First Name</ion-label>
+                  <ion-input type="text" formControlName="fname"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label >Last Name</ion-label>
+                    <ion-input type="text" formControlName="lname"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label >Password</ion-label>
+                    <ion-input type="password" placeholder="min 6 characters" formControlName="password"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label >Confirm Password</ion-label>
+                    <ion-input type="password" formControlName="cpassword"></ion-input>
+                </ion-item>
+            </ion-list>   
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              <button ion-button full type="submit" [disabled]="!register.valid" >Submit</button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>  
+  </form>
+</ion-content>

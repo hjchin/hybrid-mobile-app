@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sell</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <div *ngIf="showInput; then inputTemplate; else resultTemplate">
+      Here is never showing
+  </div>
+  
+  <ng-template #inputTemplate>
+    <form [formGroup]="sell" (ngSubmit)="sellForm()">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-list>
+                  <ion-item>
+                    <p>Available BTC{{userBtc | number :'1.4'}}</p>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Sell</ion-label>
+                    <ion-input 
+                      type="number" 
+                      formControlName="amount" 
+                      placeholder="min 0.0001"
+                      (keyup)="onKey($event)"></ion-input>
+                  </ion-item>
+                </ion-list>  
+                <p>Each bitcoin RM:{{btcPrice | number : '1.2'}}</p>
+                <p>Total selling RM:{{totalSelling | number : '1.2'}}</p> 
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <button ion-button full type="submit" [disabled]="!sell.valid" >Submit</button>
+              </ion-col>
+            </ion-row>
+        </ion-grid>  
+      </form>
+  </ng-template>
+  
+  <ng-template #resultTemplate>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p>Your money new balance:RM{{newRM}}</p>
+          <p>Your bitcoin new balance:BTC{{newBTC}}</p>
+          <p>Bitcoin sold price:RM{{btcSoldPrice}}</p>
+          <button ion-button full (click)="toggleInput();">SELL MORE</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template> -->
+  
+
+  <form [formGroup]="sell" (ngSubmit)="next()" *ngIf="uiState == 'showInput'">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <h3><span class="label">Available</span> <b>BTC{{userBtc | number :'1.4'}}</b></h3>
+            <h3><span class="label">BTC Price</span> <b>RM{{btcPrice | number : '1.2'}}</b></h3>
+            <ion-list>
+              <ion-item>
+                <ion-label>Sell</ion-label>
+                <ion-input 
+                  type="number" 
+                  formControlName="amount" 
+                  placeholder="min 0.0001"
+                  (keyup)="onKey($event)"></ion-input>
+              </ion-item>
+            </ion-list>  
+            <p>Total selling RM:{{totalSelling | number : '1.2'}}</p> 
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              <button ion-button full type="submit" [disabled]="!sell.valid" >Next</button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>  
+  </form>
+
+  <form *ngIf="uiState == 'confirmPage'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h3><span class="label">Sell BTC</span> <b>BTC{{amount}}</b></h3>
+            <h3><span class="label">Total Selling</span> <b>RM{{totalSelling | number : '1.2'}}</b></h3>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <button ion-button full type="submit" (click)="confirm();">Confirm</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>  
+    </form>
+
+  <ion-grid *ngIf="uiState == 'result'">
+      <ion-row>
+        <ion-col>
+          <h3><span class="label">BTC sold price</span> <b>RM{{btcSoldPrice}}</b></h3>
+          <h3><span class="label">New balance</span> <b>RM{{newRM}}</b></h3>
+          <h3><span class="label">New BTC</span> <b>BTC{{newBTC}}</b></h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button full (click)="toggleInput();">SELL MORE</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

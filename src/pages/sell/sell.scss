@@ -1,0 +1,7 @@
+sell-page {
+    h3{
+        .label{
+            @include label;
+        }
+    }
+}
